@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello Ivan</title>
+    <script src="./vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app">{{content}}</div>
+    <script>
+      
+      var app = new Vue({
+        el: "#app",
+        data: {
+          content: "hello world",
+        },
+      });
+      setTimeout(function(){
+        app.$data.content="hello this world";
+      },2000);  
+
+
+      // var dom = document.getElementById("app");
+      // dom.innerHTML = "helloworld";
+      // // Time delay
+      // setTimeout(function(){
+      //     dom.innerHTML = "hello this world";
+      // },2000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>TodoList</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <!-- This is View-->
+    <div id="app">
+      <input type="text" v-model="inputValue" />
+      <button v-on:click="handleBtnClick">Submit</button>
+      <!-- <ul>
+          <li>First</li>
+          <li>Second</li>
+        </ul> -->
+      <ul>
+        <todo-item v-bind:content="item" v-for="item in list"> </todo-item>
+      </ul>
+    </div>
+
+    <!-- This is Model Operation-->
+    <script>
+      // all Scope
+      // Vue.component("TodoItem", {
+      //   // accept bind variable
+      //   props: ["content"],
+      //   template: "<li>{{content}}</li>",
+      // });
+
+      var todoItem = {
+        props: ["content"],
+        template: "<li>{{content}}</li>"
+      }
+
+      var app = new Vue({
+        // scope
+        el: "#app",
+        // components
+        components:{
+          todoItem : todoItem
+        },
+        // data
+        data: {
+          list: [],
+          inputValue: "",
+        },
+        // functions
+        methods: {
+          handleBtnClick: function () {
+            console.log(this.inputValue);
+            this.list.push(this.inputValue);
+            this.inputValue = "";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

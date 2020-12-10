@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div id="app">
+      <div @click="handleClick">        
+        {{message}}
+      </div>
+      <item :message='message'></item>
+      {{firstName}} {{lastName}}
+      {{firstName +" "+lastName}}
+      <p></p>
+      {{fullName}}
+      <p></p>
+      {{age}}
+      <p>
+        {{fullNameMethod()}}
+      </p>
+      <p>
+        {{fullNameHolder}}
+      </p>
+    </div>
+
+    <script>
+      Vue.component('item',{
+        props: ['message'],
+        template: '<div>{{message}}</div>',
+      })
+      var vm = new Vue({
+        el:"#app",
+        data: {
+          message : 'Java is Best',
+          firstName: "Ivan",
+          lastName: "Dong",
+          age: 28,
+          fullNameHolder:"Ivan Dong",
+        },
+        computed: {
+          fullName: function(){
+            console.log("Computed");
+            return this.firstName+" "+this.lastName;
+          }
+        },
+        methods:{
+          handleClick: function(){
+            console.log(this.message);
+          },
+          fullNameMethod: function(){
+            console.log("Called");
+            return this.firstName+" "+this.lastName;
+          }
+        },
+        watch:{
+          firstName: function(){
+            console.log("first name Watch");
+            this.fullNameHolder = this.firstName+" "+this.lastName;
+          },
+          lastName: function(){
+            console.log("last name Watch");
+            this.fullNameHolder = this.firstName+" "+this.lastName;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+3.1 Vue instant
+- new Vue
+- Components
+
+3.2 Life Cycle Hook
+- auto execute in different life parse
+- init -> Events/Lifecycle
+- beforeCreate -> Function ONE, auto run
+- init -> injections/reactivity
+- created -> Function TWO, auto run
+- has el?
+- has template?
+  -> el outer HTML as template
+  -> Compile template into render Function
+- beforeMount -> Function THREE, auto 
+- render/replace el -> DOM changed
+- mounted -> Function FOUR, auto
+- beforeDestroy -> Function FIVE
+- destroyed -> Function SIX
+- beforeUpdate -> Function Seven
+- updated -> Function eight
+- others:
+  - activated
+  - deactivated
+  - errorCaptured
+
+3.3 template
+- {{}} -> TEXT/Mustache, support JS express, "a+' b '"
+- v-test="" -> innerText="", support JS express, "a+' b '"
+- v-html="" -> innerHTML="",Raw html, xss, support JS express, "a+' b '"
+- v-on:click="" 
+- v-bind:title=""
+
+3.4 Compute,method,listener
+- Vue.computed: {prop:function...}
+    - computed data and return
+    - insider cache
+- Vue.methods: method-name:function... 
+    - {{name()}}
+    - no cache
+- Vue.watch: data:function...
+    - {{resultData}}
+    - only called when event happened
+
+3.5 Getter/setter in computed
+- get -> same as return function
+- set -> offer a endpoint to change value
+
+3.6 Style Class Bind
+- class bind -> :class="{}"
+- class bind list content -> :class=[a,b,c]
+- sytle object -> :style="styleObj", write style in vue script as data
+- style object accept [] as well
+
+3.7 conditional render
+- v-if = "" -> true/false, could be data or express, control the element tag if existed(dom operation)
+- v-else-if ="" -> next v-if, with express in
+- v-else -> pair with v-if, next to each other
+- v-show ="" -> set style = display, better performance
+- key props -> for virtual dom, it will reuse any possible element, such as if/else will reuse input, so set different key to element to force recreate dom
+
+3.8 list render
+- list: []
+- v-for="item of list" -> item in list
+- use {{item}} to access
+- "(item,index) of list" -> index start at 0
+- :key="item.id" -> for performance, bind a unique key for each item
+- vm.list.push({data}) -> add item into list
+- vm.list[] = "" -> data will effected but will not render dom
+- pop,push,shift,unshift,splice,sort,reverse
+- splice -> change any item in the list
+    - Replace, (StartPoint,Length,ReplaceWith)
+    - Delete (StartPoint,Length)
+    - Add(StartPoint,0,newItem)
+- others:
+  -> change list data refs
+- single loop with multi display use template
+  -> use <template v-for=...> <div>item</div><span>item</span></template>
+  -> template will not dom render
+- loop object props
+  - v-for="(item,key, index) of object"
+  - render value, or key, index
+  - object data change will auto render
+  - object add new props, will not render as data changed
+    -> change object refs.
+
+3.9 Set function
+-add props, replace item
+-Vue.set(vm.data,"address","beijing")
+  - add address prop into data object, set value=beijing
+  - view will render
+-vm.$set(vm.data,"address","beijing")
+-Vue.set(vm.dataList, position, replace)

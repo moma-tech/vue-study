@@ -1,0 +1,36 @@
+4.1 Components Details
+- table/tbody/tr -> not table/tbody/row, component will be outside
+  - <tr is="row"></tr>
+  -ui/li
+  -select/option
+- In components define, data should be a function and has a return
+- use emit fire event and pass value to parent
+- use $refs to get all component and do counter
+
+4.2 Value pass
+- parent -> child
+  - :bind -> props
+- child should not change props value from parent
+  - single data flow
+  - clone parent props into local var and operate
+- child -> parent
+  - fire event
+  - emit(event, params)
+
+4.3 params validation and props
+- props{
+    count: {
+      type: [String,Number],
+      required: true,
+      default: 'default',
+      validator: function(value){
+        return (value.length > 5);
+      },
+    }
+  }
+- HTML bind data and Components Props has same name props
+  - not show in dom
+  - use {{props}} in components
+- HTML bind data and Components not defined in props
+  - can not use in components
+  - show in dom

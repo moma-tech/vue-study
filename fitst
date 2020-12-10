@@ -1,0 +1,62 @@
+Vue.js
+  - NUXT - server side
+  - WEEX - native app
+  - Community active
+
+Structure
+  - Basic Contents(1-5)
+    - Lang. Grammar
+    - MVVM Pattern
+    - Component
+    - Life Cycle
+    - Animation
+  - In Action(Practice Project)(6-10)
+    - Dev Environment
+    - Git
+    - Data Simulation
+    - Local Development
+    - Client-Server Development
+    - Device Test
+    - Publish online
+
+Project(qunar)
+  - Tour Location base on different city
+  - Index Screen
+    - Multi section with Slideshow（Image/Function Carousel）
+    - Multi section list data scroll
+  - City pick
+    - city names
+    - search
+    - letter click with locate list data
+    - city pick with Index Screen change
+  - Attractions(Sights) Detail Screen
+    - Gallery Component
+    - Header Component(Fading)
+    - Recursive Data List
+
+Key Points 
+  - Axios
+    - Ajax request
+  - Vue Router
+    - Multi pages routing
+  - Vuex
+    - Data Sharing between Components
+  - Asynchronous
+    - Performance Enhancement
+  - Stylus
+    - Styles
+  - Recursive
+    - Self Calling
+  - Plugins
+    - Sweeper
+  - Common Components
+    - Self Dev
+
+Knowledge Relations
+  - Javascript(***)
+    - basic grammar
+  - ES6(*)
+  - webpack(*)
+    - project packing
+  - npm(**)
+    - package management

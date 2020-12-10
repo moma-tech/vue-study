@@ -1,0 +1,33 @@
+Vue
+  - el
+  - components
+    - props
+    - template
+  - data
+    - list:[]
+  - methods
+
+
+V
+  - v-for
+    - item,index
+    - item in data(Vue List Data)
+  - v-model
+    - bidirectional
+  - v-bind
+    - (:)
+    - HTML Element
+      - element properties <-> vue data
+  - v-on
+    - (@)
+    - click
+    - delete
+  - v-if
+    - boolean
+
+data
+  -list
+    - item 
+    - index
+    - list.push(value)
+    - list.splice(index, numbers)

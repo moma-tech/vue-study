@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Life Cycle</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div id="app">{{message}}</div>
+    <script>
+      var vm = new Vue({
+        el: "#app", 
+        template: "<div>{{message}}</div>",
+        data:{
+          message:"hello world",
+        },
+        beforeCreate: function(){
+          console.log("Before");
+        },
+        created: function(){
+          console.log("created");
+        },
+        beforeMount:function(){
+          console.log(this.$el);
+          console.log("Before Mount");
+        },
+        mounted:function(){
+          console.log(this.$el);
+          console.log("mounted");
+        },
+        beforeDestroy:function(){
+          console.log("before Destroy");
+        },
+        destroyed:function(){
+          console.log("destroy");
+        },
+        beforeUpdate:function(){
+          console.log("before update");
+        },
+        updated: function(){
+          console.log("updated");
+        }
+      })
+    </script>
+  </body>
+</html>

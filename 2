@@ -1,0 +1,84 @@
+cn.vuejs.org
+  - Chinese Document
+  - Details read
+
+2.2 Hello World
+
+- Installation
+  - IE8+(ECMAScript 5 Required)
+  - <script></script> Label Import(Vue.js)
+    - Dev Version
+    - Prod Version 
+      - Hits/Error missed
+
+- Index.html
+  - new Vue() -> create instants
+  - el* -> binding operation DOM object/scope
+  - data* -> defined data
+  - {{content}} -> data insert/placeholder
+  - app.$data.content -> modify data value will effect all {{content}}s
+  - methods* -> defined method functions
+  - components -> components
+
+2.3 Todo list
+  - input -> add data into todo list
+  - click item -> move item into done list
+  - list -> data.type, [a,b,c,d]
+  - v-for -> loop list
+  - v-on: click -> click method
+  - v-model -> data/object bidirectional binding
+  - $data.list.push -> add new item
+
+Vue Pattern
+  - Data-View operation
+  - MVVM
+    - escape DOM operation
+
+2.4 MVVM Pattern
+  - MVP(JQuery)
+    - V <-> P <-> M
+    - View -> Dom Present
+    - Model -> Data Object
+    - Presenter*** -> Logic/Controller, Dom Operation,70-80%
+  - MVVM
+    - V <-> VM <-> M
+    - VM is done By Vue
+      - Dom listener
+      - Data binding
+    - Define View
+    - Define Model
+      - Operate Model/Data value
+      - VM will operate DOM -> View will Change
+      - Reverse will
+    - Code Line Reduced
+  - ES5 Object.defineProperty / Virtual Dom
+  
+2.5 Frontend Components
+  - single area on the page, like Slides, Buttons
+  - Easy Maintain
+
+2.6 TodoList with Components
+  - List Items as Components
+    - Vue.components(name,function()) -> All Scope Component
+    - components.template -> define value
+    - TodoItem -> todo-item, lowercase, Camel case into underscore
+    - data communicate
+      -v-bind: propertyName="item" -> loop the list item and set propertyName = item, as bind as back to component
+      -components.props = ['propertyName'] -> accept bind value
+      - {{propertyName}} -> insert into template
+  - Local Component
+    - components:{} -> register component into local Vue
+    - use object var
+
+2.7 Value between Components
+  - v-bind -> parent comp pass to child comp
+  - template bind function -> @Click
+  - component.methods -> define function to operation parents
+  - $emit -> fire event, bind event to parent(delete)
+  - operate data in parent function
+
+2.8 Conclusion
+  - Todo List
+  - bidirectional data binding
+  - Simple Component 
+
