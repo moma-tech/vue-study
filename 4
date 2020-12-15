@@ -31,6 +31,26 @@
 - HTML bind data and Components Props has same name props
   - not show in dom
   - use {{props}} in components
-- HTML bind data and Components not defined in props
+- HTML bind data and Components not defined in props    
   - can not use in components
   - show in dom
+
+4.4 Bind native event to Components
+- as before use emit call parent function
+- add @click.native="parent function"
+
+4.5 value pass between non-related components
+- 1--- 2 --- 3
+- 1 props 2, 2 emit 1
+- 1 p 2 p 3, 3 e 2 e 1
+- more complex situations
+- VUEX
+  - data framework
+- subscribe/BUS
+  - Vue.prototype.bus = new Vue();
+  - this.bus.$on("change", function (msg) {
+            console.log(this);
+            this_.selfContent = msg;
+          });
+
+4.6 slot
