@@ -53,4 +53,51 @@
             this_.selfContent = msg;
           });
 
-4.6 slot
+4.6 Slot
+  for component tag, pass data to child 
+  if child component just use it as dom object, could use slot
+  <child>
+    <p>app</p>
+  </child>
+  template: '<div>
+              <slot></slot>
+            </div>'
+  slot content could be identified by name          
+  <child>
+    <p slot='header'>app</p>
+    <p slot='footer'>app</p>
+  </child>
+  template: '<div>
+              <slot name='header'>default value</slot>
+              <div>something</div>
+              <slot name='footer'></slot>
+            </div>'
+
+4.7 Context Slot
+ if child need to use the custom dom from parents
+ - normally in for case
+ - js part:
+    <slot v-for="item of list" :item=item></slot>
+    - parent will pass a item value
+ - html part:
+    <child>
+      <template slot-scope="scopeName">
+        <h1>{{scopeName.item}}</h1>
+      </template>
+    </child>
+  - analysis
+    <div>item</div>
+    -> v-for will generate item
+    -> slot set item into scopeName
+    -> render slot as dom
+
+4.8 Dynamic Components & v-once
+- Dynamic Components
+  -HTML
+    <component :is='type'></component>
+  -type = component name
+- v-once
+  - for dynamic component create/destroy
+    - dom operation and performance latency
+  - template: <div v-once>aaaaa</div>
+  - put component into cache/memory
