@@ -33,9 +33,28 @@
     -http://www.velocityjs.org/
 
 5.5 multi components Animation
-  - v-if/v-else
+  - v-if/v-else + KEY to avoid dom reuse
   - <transition mode="in-out"></transition>
   - pick a mode
-  - for dynamic Components
-    - 
-    
+  - for multi Components
+    - v-if/v-else
+    - dynamic components
+      - <component :type=""></component>
+
+5.6 LIST Animation
+  - v-for="(item,index) of list" :key="index"
+  - <transition-group></transition-group>
+
+5.7 Animation reuse
+  - use Components
+    - prors: ['show']
+    - template:
+      <transition>
+        <slot v-if="show"></slot>
+      </transition>
+  - use js Animation
+    - put css into component
+  
+5.8 conclusion
+https://cn.vuejs.org/v2/guide/transitions.html
+tweenjs:https://github.com/tweenjs/tween.js
