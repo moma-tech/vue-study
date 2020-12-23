@@ -30,4 +30,39 @@
   - editor 
 - babelrc
   - vue single page
-  - compi,e 
+  - compile
+- /static**
+  - static resources
+  - pic/mock data
+- /src**
+  - source
+  - main.js
+  - app.vue
+  - /router
+    - index.js
+  - /component
+    - *.vue
+  - /assets
+    - *.pic
+- /node_modules
+  - 3rd party node package
+- /config**
+  - config file for Environment
+- /build
+  - webpack config
+
+6.3 Single Component/router
+- main.js app -> index.html
+  - component: {App : App} -> same key/value -> ES6
+- App.vue
+  - single component file
+  - <template></template>
+  - <script></script>   -> method
+  - <style></style>
+- router  
+  - router/index.js
+  - app.template -> <router-view>
+  - will map the router config to the view/component
+  - path mapping localhost:8080/#/path
+- Linkage
+  - index.html -> app.vue -> router.js -> helloworld.vue
